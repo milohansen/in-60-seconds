@@ -2,14 +2,14 @@
 
 ---
 
-## Add Some Slide Candy
+## What is React?
 
 ```jsx
 export default function DiskGraph({ instance, capacity, data, live }: Props): JSX.Element {
   const diskLastValueFormatter = React.useCallback(
     (d?: DiskGraphPerfData) => {
       if (d && capacity) {
-        return `${formatMBytes(d.UsedMBytes)}/${formatMBytes(capacity)} (${d3.format(",.1%")(d.UsedMBytes / capacity)})`;
+        return \\`${formatMBytes(d.UsedMBytes)}/${formatMBytes(capacity)} (${d3.format(",.1%")(d.UsedMBytes / capacity)})\\`;
       }
       return "No data";
     },
@@ -43,6 +43,32 @@ export default function DiskGraph({ instance, capacity, data, live }: Props): JS
 ```
 
 ---
+
+## How ~~do~~ should we use React?
+
+___
+
+### Project Structure
+
++++
+
+#### Fractal
+
++++
+
+#### References
+
++++
+
+#### Component Structure
+
+---
+
+## Hooks
+
+___
+
+
 @title[Customize Slide Layout]
 
 @snap[west span-50]
