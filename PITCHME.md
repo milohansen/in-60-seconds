@@ -5,46 +5,24 @@
 ## What is React?
 
 ```jsx
-export default function DiskGraph({ instance, capacity, data, live }: Props): JSX.Element {
-  const diskLastValueFormatter = React.useCallback(
-    (d?: DiskGraphPerfData) => {
-      if (d && capacity) {
-        return \\`${formatMBytes(d.UsedMBytes)}/${formatMBytes(capacity)} (${d3.format(",.1%")(d.UsedMBytes / capacity)})\\`;
-      }
-      return "No data";
-    },
-    [capacity]
-  );
-  const diskDataTransform = React.useCallback(
-    (d: VolumePerfData | LiveVolumePerfData) => {
-      return {
-        ...d,
-        UsedMBytes: capacity ? capacity - d.FreeMegabytes : undefined
-      } as DiskGraphPerfData;
-    },
-    [capacity]
-  );
+function ProfilePage(props) {
+  const showMessage = () => {
+    alert('Followed ' + props.user);
+  };
 
-  const valueProps = React.useMemo(() => [{ ...usedMBytes, domainMax: capacity }, diskQueueLength], [usedMBytes, capacity, diskQueueLength]);
+  const handleClick = () => {
+    setTimeout(showMessage, 3000);
+  };
 
   return (
-    <StatGraph
-      label={`Disk space (${instance})`}
-      data={data}
-      timeProps={timeProps}
-      valueProps={valueProps}
-      dataTransform={diskDataTransform}
-      lastValueFormatter={diskLastValueFormatter}
-      color="#498205"
-      live={live}
-    />
+    <button onClick={handleClick}>Follow</button>
   );
 }
 ```
 
 ---
 
-## How ~~do~~ should we use React?
+## How to use React
 
 ___
 
@@ -65,6 +43,52 @@ ___
 ---
 
 ## Hooks
+
++++?color=linear-gradient(90deg, white 50%, black 50%)
+
+@snap[west span-40 text-center]
+
+#### Class
+
+```jsx
+class ProfilePage extends React.Component {
+  showMessage = () => {
+    alert('Followed ' + this.props.user);
+  };
+
+  handleClick = () => {
+    setTimeout(this.showMessage, 3000);
+  };
+
+  render() {
+    return <button onClick={this.handleClick}>Follow</button>;
+  }
+}
+```
+
+@snapend
+
+@snap[east span-40 text-center]
+
+#### Function
+
+```jsx
+function ProfilePage(props) {
+  const showMessage = () => {
+    alert('Followed ' + props.user);
+  };
+
+  const handleClick = () => {
+    setTimeout(showMessage, 3000);
+  };
+
+  return (
+    <button onClick={handleClick}>Follow</button>
+  );
+}
+```
+
+@snapend
 
 ___
 

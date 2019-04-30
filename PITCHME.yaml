@@ -24,8 +24,6 @@ code-line-numbers: true
 #
 layout : center
 
-controls-layout: none
-
 #
 # Published Setting
 # Doc: https://gitpitch.com/docs/settings/published
