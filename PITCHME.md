@@ -4,7 +4,7 @@
 
 ## Add Some Slide Candy
 
-```tsx
+```jsx
 export default function DiskGraph({ instance, capacity, data, live }: Props): JSX.Element {
   const diskLastValueFormatter = React.useCallback(
     (d?: DiskGraphPerfData) => {
