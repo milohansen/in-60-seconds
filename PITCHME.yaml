@@ -6,7 +6,7 @@
 # Doc: https://gitpitch.com/docs/settings/theme
 #
 # theme : dark
-theme-override: assets/css/PITCHME.css
+# theme-override: assets/css/PITCHME.css
 
 highlight: monokai
 code-line-numbers: true
