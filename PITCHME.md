@@ -1,10 +1,46 @@
-# Let's Get Started
+# React Brownbag
 
 ---
 
 ## Add Some Slide Candy
 
-![](assets/img/presentation.png)
+```tsx
+export default function DiskGraph({ instance, capacity, data, live }: Props): JSX.Element {
+  const diskLastValueFormatter = React.useCallback(
+    (d?: DiskGraphPerfData) => {
+      if (d && capacity) {
+        return `${formatMBytes(d.UsedMBytes)}/${formatMBytes(capacity)} (${d3.format(",.1%")(d.UsedMBytes / capacity)})`;
+      }
+      return "No data";
+    },
+    [capacity]
+  );
+  const diskDataTransform = React.useCallback(
+    (d: VolumePerfData | LiveVolumePerfData) => {
+      return {
+        ...d,
+        UsedMBytes: capacity ? capacity - d.FreeMegabytes : undefined
+      } as DiskGraphPerfData;
+    },
+    [capacity]
+  );
+
+  const valueProps = React.useMemo(() => [{ ...usedMBytes, domainMax: capacity }, diskQueueLength], [usedMBytes, capacity, diskQueueLength]);
+
+  return (
+    <StatGraph
+      label={`Disk space (${instance})`}
+      data={data}
+      timeProps={timeProps}
+      valueProps={valueProps}
+      dataTransform={diskDataTransform}
+      lastValueFormatter={diskLastValueFormatter}
+      color="#498205"
+      live={live}
+    />
+  );
+}
+```
 
 ---
 @title[Customize Slide Layout]
