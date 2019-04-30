@@ -26,7 +26,7 @@ function ProfilePage(props) {
 
 ___
 
-### Project Structure
+## Project Structure
 
 +++
 
@@ -92,9 +92,10 @@ function ProfilePage(props) {
 
 +++
 
+## WTF
 ___
 
-
+## Foo
 ___
 
 @title[Customize Slide Layout]
