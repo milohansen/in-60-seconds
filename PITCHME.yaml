@@ -8,8 +8,8 @@
 # theme : dark
 # theme-override: assets/css/PITCHME.css
 
-highlight: monokai
-code-line-numbers: true
+# highlight: monokai
+# code-line-numbers: true
 
 #
 # Logo Setting
