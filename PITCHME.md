@@ -90,10 +90,14 @@ function ProfilePage(props) {
 
 @snapend
 
++++
+
 ___
 
 
-___@title[Customize Slide Layout]
+___
+
+@title[Customize Slide Layout]
 
 @snap[west span-50]
 ## Customize Slide Content Layout
